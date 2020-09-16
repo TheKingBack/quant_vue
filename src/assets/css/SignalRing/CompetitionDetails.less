@@ -1,0 +1,579 @@
+
+.big-box {
+  background-color: #f6f6f6;
+  padding-top: 22px;
+}
+.contain {
+  width: 1206px;
+  overflow: hidden;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.bg{
+  width: 100%;
+  background-color: #fff;
+}
+
+// 大赛详情的中心部分
+.CompetitionDetails-center {
+  // height: 500px;
+  padding: 40px 0;
+  margin-bottom: 20px;
+
+  //最上边第一名展示部分
+  .CompetitionDetails-centerTop {
+    width: 100%;
+    height: 235px;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    background: url("/static/SignalRing/CompetitionDetails/icon_beijing.png") no-repeat;
+
+    // 左边部分
+    .left-span {
+      display: block;
+      position: absolute;
+      left: 70px;
+      top: 76px;
+      // margin: 76px 0 16px;
+      font-size: 16px;
+      color: #fff;
+    }
+    .left1-span {
+      display: block;
+      position: absolute;
+      left: 93px;
+      top: 108px;
+      font-size: 32px;
+      color: #fff;
+    }
+    .centerTop-left {
+      width: 206px;
+      height: 235px;
+      float: left;
+      background-color: #fefefe;
+      opacity: 0.2;
+      text-align: center;
+    }
+
+    // 中间部分
+    .centerTop-center {
+      float: left;
+      width: 680px;
+      box-sizing: border-box;
+      padding: 14px 0 14px 50px;
+      overflow: hidden;
+      color: #fff;
+      .center-top {
+        width: 100%;
+        height: 130px;
+        padding: 18px 0;
+        .center-topTitle {
+          font-size: 28px;
+          margin-bottom: 24px;
+        }
+        .center-topLeft,
+        .center-topRight {
+          width: 50%;
+          float: left;
+          color: #e7e5f0;
+          font-size: 14px;
+        }
+        .topLeft-team,
+        .topRight-time {
+          margin-bottom: 10px;
+        }
+      }
+      .center-bottom {
+        width: 580px;
+        box-sizing: border-box;
+        padding: 28px 0 0 18px;
+        display: flex;
+        border-top: 1px solid #705fb2;
+        li {
+          flex: 1;
+          float: left;
+          text-align: center;
+          font-size: 12px;
+          color: #e7e5f0;
+          .bottom-span {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    //右边部分
+    .centerTop-right {
+      width: 246px;
+      height: 200px;
+      background-color: #fff;
+      opacity: 0.2;
+      float: right;
+      border-radius: 10px;
+      margin: 18px 20px 0 0;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .TeamInformation {
+      width: 246px;
+      height: 200px;
+      border-radius: 10px;
+      padding: 12px 20px;
+      position: absolute;
+      right: 20px;
+      top: 18px;
+      z-index: 9999;
+      box-sizing: border-box;
+      .TeamInformation-title {
+        width: 100%;
+        height: 30px;
+        color: #fefefe;
+        padding: 8px 0;
+        font-size: 14px;
+        border-bottom: 1px solid #9083bf;
+        box-sizing: border-box;
+      }
+      .TeamInformation-content {
+        width: 100%;
+        margin-top: 16px;
+        box-sizing: border-box;
+        li {
+          padding: 6px 0;
+          box-sizing: border-box;
+          overflow: hidden;
+          color: #fefefe;
+          font-size: 14px;
+          .content-l {
+            float: left;
+          }
+          .content-r {
+            float: right;
+          }
+          &::before {
+            content: "";
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+            float: left;
+            margin-right: 10px;
+            margin-top: 3px;
+          }
+        }
+      }
+    }
+  }
+
+  // 中间展示部分
+
+  // 模拟交易
+  .MockTrading {
+    width: 100%;
+    height: 120px;
+    margin-top: 20px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    .MockTrading-title {
+      font-size: 16px;
+      color: #333;
+      padding: 8px 0;
+      box-sizing: border-box;
+      float: left;
+      &::after {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 18px;
+        float: left;
+        margin-right: 16px;
+        background-color: #14aaff;
+      }
+    }
+    .MockTrading-content {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      li {
+        flex: 1;
+        height: 100px;
+        text-align: center;
+        float: left;
+        position: relative;
+        &::after {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 36px;
+          background-color: #dcdcdc;
+          position: absolute;
+          right: 0;
+          top: 20px;
+        }
+        .span-t {
+          display: block;
+          font-size: 14px;
+          margin-top: 12px;
+          color: #a0a0a0;
+        }
+        .span-b {
+          margin-top: 6px;
+          display: block;
+          height: 60px;
+          font-size: 28px;
+          font-family: "Microsoft Yahei";
+          color: #333;
+        }
+        .red {
+          color: #ec4343;
+        }
+      }
+    }
+  }
+
+  // 回测
+  .BackProbe {
+    width: 100%;
+    height: 120px;
+    margin-top: 20px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    .BackProbe-title {
+      font-size: 16px;
+      color: #333;
+      padding: 8px 0;
+      box-sizing: border-box;
+      float: left;
+      &::after {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 18px;
+        float: left;
+        margin-right: 16px;
+        background-color: #14aaff;
+      }
+    }
+    .BackProbe-content {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      li {
+        flex: 1;
+        height: 100px;
+        text-align: center;
+        float: left;
+        position: relative;
+        &::after {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 36px;
+          background-color: #dcdcdc;
+          position: absolute;
+          right: 0;
+          top: 20px;
+        }
+        .span-t {
+          display: block;
+          font-size: 14px;
+          margin-top: 12px;
+          color: #a0a0a0;
+        }
+        .span-b {
+          margin-top: 6px;
+          display: block;
+          height: 60px;
+          font-size: 28px;
+          font-family: "Microsoft Yahei";
+          color: #333;
+        }
+      }
+    }
+  }
+
+  // 收益走势
+  .IncomeTrend {
+    width: 100%;
+    height: 532px;
+    margin-top: 20px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    .IncomeTrend-title {
+      width: 100%;
+      font-size: 16px;
+      color: #333;
+      padding: 18px 0;
+      box-sizing: border-box;
+      float: left;
+      &::after {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 18px;
+        float: left;
+        margin-right: 16px;
+        background-color: #14aaff;
+      }
+    }
+    .IncomeTrend-content {
+      width: 100%;
+      height: 480px;
+      padding-left: 20px;
+      box-sizing: border-box;
+      .content-top {
+        width: 100%;
+        font-size: 12px;
+        color: #999999;
+        padding: 6px 0 16px 0;
+        box-sizing: border-box;
+        .content-span {
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+      .content-content {
+        width: 1130px;
+        border: 1px solid #e4e4e4;
+        height: 426px;
+        padding: 10px 0;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  // 当前持仓
+  .CurrentHolding{
+    width: 100%;
+    height: 236px;
+    margin-top: 20px;
+    .CurrentHolding-top{
+      padding: 10px 0;
+      overflow: hidden;
+      color: #333;
+      box-sizing: border-box;
+      .top-l{
+        float: left;
+        font-size: 16px;
+      }
+      .top-r{
+        float: right;
+        font-size: 14px;
+        overflow: hidden;
+        .right-title,
+        .right-time{
+          float: left;
+        }
+        .right-time{
+          padding: 1px 36px 3px 0;
+          position: relative;
+          border-bottom: 1px solid #e6e6e6;
+          &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 17px;
+            height: 16px;
+            background: url('/static/SignalRing/CompetitionDetails/icon_rli.png') no-repeat;
+          }
+        }
+      }
+    }
+  }
+
+  // 最新下单
+  .latestOrder{
+    width: 100%;
+    height: 236px;
+    margin-top: 20px;
+    .latestOrder-top{
+      padding: 12px 0;
+      overflow: hidden;
+      color: #333;
+      box-sizing: border-box;
+    }
+  }
+
+  // 分享
+  .share{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    padding-left: 40px;
+    li{
+      color:#999;
+      display: block;
+      float: left;
+      margin-right: 26px;
+    }
+    .share-one{
+      position: relative;
+      &::before{
+        content:'';
+        display: block;
+        width: 20px;
+        height: 18px;
+        position: absolute;
+        left: -30px;
+        top: 1px;
+        background: url('/static/SignalRing/CompetitionDetails/icon_shoucangweixuanzhongdixia.png') no-repeat;
+      }
+      &:hover{
+        &::before{
+          background: url('/static/SignalRing/CompetitionDetails/icon_xshoucangdixiayixuanzhong.png') no-repeat;
+        }
+      }
+    }
+
+    // 模态框
+    .el-button{
+      padding: 0;
+      font-size: 16px;
+      color:#999;
+    }
+
+
+    .share-three{
+      width: 24px;
+      height: 20px;
+      background: url('/static/SignalRing/CompetitionDetails/icon_weixuanzhongweixindixia.png') no-repeat;
+      &:hover{
+        background: url('/static/SignalRing/CompetitionDetails/icon_weixuanzhongweixindixiaxuanzhong.png') no-repeat;
+      }
+    }
+    .share-four{
+      width: 24px;
+      height: 20px;
+      background: url('/static/SignalRing/CompetitionDetails/icon_weixuanzhongweibodixia.png') no-repeat;
+      &:hover{
+        background: url('/static/SignalRing/CompetitionDetails/icon_weixuanzhongweibodixiaxuanzhong.png') no-repeat;
+      }
+    }
+    .share-five{
+      width: 24px;
+      height: 20px;
+      background: url('/static/SignalRing/CompetitionDetails/icon_weixuanzhongxueqiudixia.png') no-repeat;
+      &:hover{
+        background: url('/static/SignalRing/CompetitionDetails/icon_dianjixueqiu.png') no-repeat;
+      }
+    }
+  }
+
+  
+}
+
+// 下部讨论区
+.discuss{
+  // height: 300px;
+  background-color: #fff;
+  padding-top: 12px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  .discuss-top{
+    width: 100%;
+    font-size: 22px;
+    color: #333;
+    padding: 16px 0;
+    border-bottom: 1px solid #dcdcdc;
+    box-sizing: border-box;
+    float: left;
+    &::after {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 22px;
+      float: left;
+      margin-right: 16px;
+      background-color: #14aaff;
+    }
+  }
+  .discuss-content{
+    width: 100%;
+    // height: 212px;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 10px 0;
+    box-sizing: border-box;
+    .content-top{
+      width: 100%;
+      height: 72px;
+      padding: 16px 0;
+      box-sizing: border-box;
+      overflow: hidden;
+      .top-photo{
+        float: left;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid #dcdcdc;
+        margin-right: 20px;
+        background-color: skyblue;
+      }
+      .top-content{
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        color: #666;
+      }
+    }
+    .content-content{
+      color: #999;
+      font-size: 14px;
+      padding-right: 260px;
+      padding-left: 18px;
+      box-sizing: border-box;
+      line-height: 1.5em;
+    }
+    .content-bottom{
+      width: 72px;
+      font-size: 16px;
+      padding:16px 0px 16px 36px;
+      color: #67c4fd;
+      position: relative;
+      &::before{
+        content: '';
+        display: block;
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        top: 15px;
+        left: 8px;
+        margin-right: 16px;
+        background:url('/static/SignalRing/CompetitionDetails/icon_huifu.png') no-repeat;
+      }
+    }
+  }
+  .discuss-bottom{
+    width: 100%;
+    height: 350px;
+    .bottom-T{
+      width: 1200px;
+      margin: 30px auto;
+    }
+    .bottom-B{
+      width: 110px;
+      height: 40px;
+      background-color: #00aefc;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 40px;
+      margin: 8px auto;
+    }
+  }
+}
+
+
+

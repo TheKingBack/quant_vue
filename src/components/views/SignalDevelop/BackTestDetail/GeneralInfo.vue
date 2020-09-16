@@ -1,0 +1,223 @@
+<template>
+	<div class="general-info">
+		<div style="border-bottom: 1px solid #E6E6E6; height: 36px; background-color:white; vertical-align: middle; line-height: 36px; padding-left: 20px;">
+			<img src="/static/AICommunity/general-info-unselected.png">
+			<span style="padding-left: 5px">收益概述</span>
+		</div>
+		<div style="background-color: white; padding: 20px; min-height: calc(100vh - 36px - 170px);">
+			<div>
+				<div class="char-status">
+					<div style="font-size: 12px;">策略收益</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{strategyGain | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">策略年化收益</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{strategyYearGain | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">基准收益</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{baseGain | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">Alpha</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{alpha | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">Beta</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{beta | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">Sharp</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{sharp | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">Sortino</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{sortino | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">Information Ratio</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{infoRatio | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">Algorithm Volatility</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{algoVola | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">Benchmark Volatility</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{benchVola | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">胜率</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{winRate | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">日胜率</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{winRateDay | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">盈亏比</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{winLossRatio | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">盈利次数</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{winCount | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">亏损次数</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{lossCount | formatBenefit}}</div>
+				</div>
+				<div class="char-status">
+					<div style="font-size: 12px;">最大回撤</div>
+					<div style="font-size: 16px; padding-top: 12px;">{{maxDrawBack | formatBenefit}}</div>
+				</div>
+			</div>
+			<div style="padding-top: 34px;" id="generalChart">
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+import Global from "@/components/layout/Global"
+import Highstock from 'highcharts/highstock'
+
+
+export default {
+	components: {
+		Highstock
+	},
+	data() {
+		return {
+			strategyGain: "--",
+			strategyYearGain: "--",
+			baseGain: "--",
+			alpha: "--",
+			beta: "--",
+			sharp: "--",
+			sortino: "--",
+			infoRatio: "--",
+			algoVola: "--",
+			benchVola: "--",
+			winRate: "--",
+			winRateDay: "--",
+			winLossRatio: "--",
+			winCount: "--",
+			lossCount: "--",
+			maxDrawBack: "--"
+		}
+	},
+	methods: {
+		getStrategyCatVal: function(catVal) {
+			if(!catVal) {
+				console.error("未获取到策略类别");
+			}
+			var strategyNum = null;
+			switch(catVal) {
+				case "futures":
+					strategyNum = 0;
+					break;
+				case "stock":
+					strategyNum = 1;
+					break;
+				case "forex":
+					strategyNum = 2;
+					break;
+				case "bond":
+					strategyNum = 3;
+					break;
+				case "options":
+					strategyNum = 4;
+					break;
+				default:
+					console.error("不存在此类别的策略：" + catVal);
+					break;
+			}
+			return strategyNum;
+		},
+		loadGeneralInfo: function(strategyData) {
+			var self = this;
+			//set data to general info tab
+			var stateIntervalID = setInterval(function() {
+				//Get signal compile running status/result
+
+				self.$http.post(Global.getRequestUrl() + "/dev/signal/test/result",
+
+					{
+						name: this.$route.params.backtestId,
+					},
+					{
+						headers: Global.getRequestHeader()
+					}
+				).then(	
+					function(stateRes) {
+
+						console.log("这就是："+stateRes);
+
+						 if(stateRes.data && stateRes.data.data && stateRes.data.data.report && stateRes.data.data.report.final_status) {
+						 	clearInterval(stateIntervalID);
+						 	if(stateRes.data.data.report.final_status === "fail") {
+						 		console.error("回测运行出错！错误原因：" + stateRes.data.data.report.reason);
+						 	}else if(stateRes.data.data.report.final_status === "success"){
+						 		console.log("***");
+						 		console.log(stateRes.data.data);
+							 	//show data and chart in UI according to data returned from server side
+							 	var output = stateRes.data.data.report.output;
+							 	output.total_benefits && (self.strategyGain = parseFloat(output.total_benefits) * 100);
+							 	output.alpha && (self.alpha = output.alpha);
+							 	output.beta && (self.beta = output.beta);
+							 	output.max_retracement && (self.maxDrawBack = parseFloat(output.max_retracement) * 100);
+							 	output.half_decay && (self.halfDecay = parseFloat(output.half_decay));
+							 	if(output.net_values) {
+							 		this.formatNetValues(output.net_values);
+							 	}
+							 	self.loadBenefitData();
+							 }
+						 }
+					}, function(error) {
+						console.error("获取编译运行状态请求出错！");
+						console.error(error);
+					});
+				}, 1000);
+		},
+		formatNetValues: function(netValues) {
+			self.benefitData = [];
+			for(var i=0; i<netValues.length; i++) {
+				var _ts = netValues[i].ts * 1000;
+				var _v = netValues[i].v;
+				self.benefitData.push([_ts, _v]);
+			} 
+		},
+		loadBenefitData: function() {
+			Highstock.StockChart({
+				chart: {
+					renderTo: 'generalChart'
+				},
+				series: [{
+					name: '净值',
+					data: self.benefitData //[[1,2], [3,4]]
+				}]
+			});
+		}
+	},
+	filters: {
+		formatBenefit: function(val) {
+			if(val === "--" || !val) {
+				return "--";
+			}
+			return parseFloat(val).toFixed(2) + "%";
+		}
+	}
+}
+</script>
+
+<style lang="scss">
+	.general-info {
+		.char-status {
+			display: inline-block;
+			width: calc(100%/16);
+			text-align: center;
+			min-width: 35px;
+		}		
+	}
+	
+</style>

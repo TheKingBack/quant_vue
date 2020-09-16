@@ -1,0 +1,304 @@
+.big-box {
+  background-color: #f0f0f0;
+}
+.contain {
+  width: 1206px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+// 最上边部分
+.Description-top {
+  width: 100%;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: url("/static/SignalRing/Description/1844153257.jpg") no-repeat
+    center;
+  .top-article {
+    text-align: center;
+    height: 230px;
+    padding-top: 106px;
+    .article-china {
+      width: 100%;
+      font-size: 38px;
+      color: #fff;
+      margin: 0px auto 10px;
+    }
+    .article-English {
+      width: 100%;
+      font-size: 14px;
+      color: #fff;
+      margin: 0 auto;
+    }
+  }
+  .top-bottom {
+    width: 312px;
+    height: 46px;
+    margin: 0 auto;
+    overflow: hidden;
+    .bottom-left,
+    .bottom-right {
+      width: 132px;
+      height: 46px;
+      color: #fff;
+      border: 1px solid #fff;
+      border-radius: 23px;
+      text-align: center;
+      line-height: 46px;
+    }
+    .bottom-left {
+      float: left;
+    }
+    .bottom-right {
+      float: right;
+    }
+  }
+}
+
+// 中间部分
+.active {
+  color: #14aaff;
+  border-bottom: 2px solid #14aaff;
+}
+
+.mulu {
+  font-size: 22px;
+  color: #333;
+}
+
+.tongyong {
+  padding-top: 16px;
+  box-sizing: border-box;
+}
+.Description-nav {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  .nav-center {
+    display: flex;
+    padding: 0;
+    li {
+      flex: 1;
+      text-align: center;
+      padding: 0 46px;
+      box-sizing: border-box;
+      a {
+        display: block;
+        height: 60px;
+        line-height: 60px;
+        margin: 0 auto;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+// 大赛说明
+#dasaishuoming {
+  width: 100%;
+  height: 330px;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  .dasaishuoming-contain {
+    height: 330px;
+    padding-top: 40px;
+    box-sizing: border-box;
+    .dasaishuoming-center {
+      font-size: 14px;
+      line-height: 1.8em;
+      margin-top: 20px;
+      color: #666;
+    }
+    .dasaishuoming-bottom {
+      margin-top: 24px;
+      font-size: 16px;
+      color: #333;
+      .contestants-one,
+      .contestants-two {
+        padding-left: 14px;
+        margin-top: 16px;
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  }
+}
+
+//赛程安排
+#saichenganpai {
+  width: 100%;
+  height: 354px;
+  background-color: #fff;
+  box-sizing: border-box;
+  .saichenganpai-contain {
+    height: 354px;
+    .saichenganpai-center {
+      margin: 30px 0 0 30px;
+      position: relative;
+      &::before {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 232px;
+        background-color: #e6e6e6;
+        position: absolute;
+        left: -18px;
+        top: 12px;
+      }
+      li {
+        margin-bottom: 18px;
+        font-size: 14px;
+        color: #666;
+        position: relative;
+        &::before {
+          content: "";
+          display: block;
+          width: 10px;
+          height: 10px;
+          background-color: #14aaff;
+          border-radius: 50%;
+          position: absolute;
+          left: -22px;
+          top: 4px;
+        }
+      }
+    }
+  }
+}
+
+// 奖项设置
+#jiangxiangshezhi {
+  width: 100%;
+  height: 292px;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  .jiangxiangshezhi-center {
+    padding-top: 30px;
+    overflow: hidden;
+    .jiangxiangshezhi-span {
+      display: block;
+      width: 40px;
+      height: 48px;
+      float: left;
+      margin-right: 20px;
+      margin-top: -9px;
+    }
+    .jiangxiangshezhi-div {
+      width: 108px;
+      height: 30px;
+      float: left;
+      text-align: center;
+      line-height: 30px;
+      font-size: 12px;
+      border-radius: 6px;
+      background-color: #14aaff;
+      color: #fff;
+    }
+    .span1 {
+      background: url("/static/SignalRing/Description/icon_1dengjiang.png")
+        no-repeat;
+    }
+    .span2 {
+      background: url("/static/SignalRing/Description/icon_dierming.png")
+        no-repeat;
+    }
+    .span3 {
+      margin-left: 52px;
+      background: url("/static/SignalRing/Description/icon_disanming.png")
+        no-repeat;
+    }
+    .span4 {
+      margin-left: 52px;
+      background: url("/static/SignalRing/Description/icon_youshengjiang.png")
+        no-repeat;
+    }
+    .span5 {
+      margin-top: 0;
+      background: url("/static/SignalRing/Description/icon_youxiudaoshi.png")
+        no-repeat;
+    }
+  }
+}
+
+// 参赛须知
+#cansaixuzhi {
+  width: 100%;
+  height: 320px;
+  background-color: #fff;
+  box-sizing: border-box;
+  .cansaixuzhi-center {
+    font-size: 14px;
+    li {
+      margin-top: 16px;
+      color: #999;
+    }
+  }
+}
+
+// 参赛指引
+#cansaizhiyin {
+  width: 100%;
+  height: 214px;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  .cansaizhiyin-center {
+    width: 100%;
+    padding: 42px 70px;
+    li {
+      width: 20%;
+      float: left;
+      color: #666;
+      font-size: 14px;
+      text-align: center;
+      img{
+        display: block;
+        margin: 0 auto 10px;
+      }
+    }
+  }
+}
+
+// 赛事声明
+#saishishengming{
+  width: 100% ;
+  height: 318px;
+  background-color: #fff;
+  box-sizing: border-box;
+  .saishishengming-center {
+    font-size: 14px;
+    li {
+      margin-top: 8px;
+      color: #999;
+      line-height: 1.8em;
+    }
+  }
+}
+
+// 大赛组织
+#dasaizuzhi{
+  width: 100%;
+  height: 444px;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  .dasaizuhi-center{
+    padding-top: 20px;
+    .dasaizuhi-title{
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 14px;
+    }
+    .dasaizuhi-article{
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 14px;
+    }
+    .alone{
+      overflow: hidden;
+      li{
+        float: left;
+        margin-right: 12px;
+      }
+    }
+  }
+}
